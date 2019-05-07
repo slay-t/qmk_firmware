@@ -18,11 +18,9 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef CONFIG_H
-#define CONFIG_H
+#pragma once
 
-#define BLE_NUS_MIN_INTERVAL 30
-#define BLE_NUS_MAX_INTERVAL 70
+#define PROGMEM
 
 /* USB Device descriptor parameter */
 #define VENDOR_ID       0xFC51
@@ -31,6 +29,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MANUFACTURER    F_YUUCHI
 #define PRODUCT         Lily58 BLE
 #define DESCRIPTION     Lily58 is 6x4+5keys column-staggered split keyboard.
+
+#define PREVENT_STUCK_MODIFIERS
 
 /* key matrix size */
 #define MATRIX_ROWS 10
@@ -41,8 +41,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* define if matrix has ghost */
 //#define MATRIX_HAS_GHOST
 
-/* Set 0 if debouncing isn't needed */
-#define DEBOUNCE    1
+/* Debounce reduces chatter (unintended double-presses) - set 0 if debouncing is not needed */
+#define DEBOUNCING_DELAY 5
 
 /* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
 #define LOCKING_SUPPORT_ENABLE
@@ -76,4 +76,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define NO_ACTION_MACRO
 //#define NO_ACTION_FUNCTION
 
-#endif
+#define TAPPING_TERM 200
+
+#define BLE_HID_MAX_INTERVAL 55
+#define BLE_HID_SLAVE_LATENCY 4
+
+#define BLE_NUS_MIN_INTERVAL 30
+#define BLE_NUS_MAX_INTERVAL 40
+#define BLE_NUS_SLAVE_LATENCY 4

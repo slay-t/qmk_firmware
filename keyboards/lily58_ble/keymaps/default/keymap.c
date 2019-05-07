@@ -67,46 +67,46 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* QWERTY
  * ,-----------------------------------------.                    ,-----------------------------------------.
- * | ESC  |   1  |   2  |   3  |   4  |   5  |                    |   6  |   7  |   8  |   9  |   0  |  ~   |
+ * | ESC  |   1  |   2  |   3  |   4  |   5  |                    |   6  |   7  |   8  |   9  |   0  |  -   |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | Tab  |   Q  |   W  |   E  |   R  |   T  |                    |   Y  |   U  |   I  |   O  |   P  |  -   |
+ * | Tab  |   Q  |   W  |   E  |   R  |   T  |                    |   Y  |   U  |   I  |   O  |   P  |  \   |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |LCTRL |   A  |   S  |   D  |   F  |   G  |-------.    ,-------|   H  |   J  |   K  |   L  |   ;  |  '   |
+ * | Ctrl |   A  |   S  |   D  |   F  |   G  |-------.    ,-------|   H  |   J  |   K  |   L  |   ;  |  '   |
  * |------+------+------+------+------+------|   [   |    |    ]  |------+------+------+------+------+------|
- * |LShift|   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  |   .  |   /  |   \  |
+ * |LShift|   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  |   .  |   /  |RShift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   |LOWER | LGUI | Alt  | /Space  /       \Enter \  |BackSP| RGUI |RAISE |
+ *                   |  ~   | Alt  | LGUI | /Space  /       \Enter \  |BackSP| Space|  =   |
  *                   |      |      |      |/~LOWER /         \~RAISE\ |      |      |      |
  *                   `-------------------''-------'           '------''--------------------'
  */
 
  [_QWERTY] = LAYOUT( \
-  KC_ESC,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                   KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_GRV, \
-  KC_TAB,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                   KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS, \
+  KC_ESC,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                   KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, \
+  KC_TAB,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                   KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS, \
   KC_LCTRL, KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                   KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, \
-  KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, KC_LBRC, KC_RBRC, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,  KC_BSLS, \
-                       MO(_LOWER),KC_LGUI, KC_LALT, LT(_LOWER,KC_SPC),  LT(_RAISE,KC_ENT),  KC_BSPC, KC_RGUI, MO(_RAISE) \
+  KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, KC_LBRC, KC_RBRC, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,  KC_RSFT, \
+                KC_GRV, KC_LALT, KC_LGUI, LT(_LOWER,KC_SPC),  LT(_RAISE,KC_ENT),  KC_BSPC, ALT_T(KC_SPC), KC_EQL \
 ),
 /* LOWER
- * ,-----------------------------------------.                    ,-----------------------------------------.
- * |AD_WOL|ADVID1|ADVID2|ADVID3|ADVID4|      |                    |      |      |      |      |      |      |
- * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |      |      |ENTSLP|ENTDFU|                    |      |      |      |      |      |      |
- * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |      |      |USBDIS|USB_EN|-------.    ,-------|   ~  |   !  |   @  |   #  |   $  |   %  |
- * |------+------+------+------+------+------|   [   |    |    ]  |------+------+------+------+------+------|
- * |BATTLV|DELID1|      |      |BLEDIS|BLE_EN|-------|    |-------|   ^  |   &  |   *  |   (  |   )  |   |  |
- * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   |LOWER | LGUI | Alt  | /Space  /       \Enter \  |BackSP| RGUI |RAISE |
- *                   |      |      |      |/       /         \      \ |      |      |      |
- *                   `-------------------''-------'           '------''--------------------'
+ * ,-----------------------------------------.                    ,------------------------------------------.
+ * |AD_WOL|ADVID1|ADVID2|ADVID3|ADVID4|      |                    |       |      |      |      |      |      |
+ * |------+------+------+------+------+------|                    |-------+------+------+------+------+------|
+ * |DELID1|      |      |      |ENTSLP|ENTDFU|                    |       |      |      |      |      |      |
+ * |------+------+------+------+------+------|                    |-------+------+------+------+------+------|
+ * |DELBNDS|      |      |      |USBDIS|USB_EN|-------.    ,-------|    ~  |   !  |   @  |   #  |   $  |   %  |
+ * |------+------+------+------+------+------|   [   |    |    ]  |-------+------+------+------+------+------|
+ * |BATTLV|      |      |      |BLEDIS|BLE_EN|-------|    |-------|    ^  |   &  |   *  |   (  |   )  |   |  |
+ * `-----------------------------------------/       / 　  \       \-----------------------------------------'
+ *                   |LOWER | Alt  | LGUI | /Space  /       \Enter  \  |BackSP| RGUI |RAISE |
+ *                   |      |      |      |/       /         \       \ |      |      |      |
+ *                   `-------------------''-------'           '-------''--------------------'
  */
 [_LOWER] = LAYOUT( \
   AD_WO_L, ADV_ID1, ADV_ID2, ADV_ID3, ADV_ID4, XXXXXXX,                  _______, _______, _______,  _______, _______,  _______,\
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, ENT_SLP, ENT_DFU,                  _______, _______, _______,  _______, _______,  _______, \
+  DEL_ID1, XXXXXXX, XXXXXXX, XXXXXXX, ENT_SLP, ENT_DFU,                  _______, _______, _______,  _______, _______,  _______, \
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, USB_DIS, USB_EN,                   KC_GRV, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, \
-  BATT_LV, DEL_ID1, XXXXXXX, XXXXXXX, BLE_DIS, BLE_EN, _______, _______, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_PIPE, \
-                             _______, _______, _______, _______, _______,  _______, _______, _______\
+  BATT_LV, XXXXXXX, XXXXXXX, XXXXXXX, BLE_DIS, BLE_EN, _______, _______, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_PIPE, \
+                             _______, _______, _______, _______, _______,  KC_DEL, _______, _______\
 ),
 /* RAISE
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -114,9 +114,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |   `  |   1  |   2  |   3  |   4  |   5  |                    |   6  |   7  |   8  |   9  |   0  |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |      |      |      |      |-------.    ,-------|      | Left | Down |  Up  |Right |      |
+ * | CAPS |      |      |      |      |      |-------.    ,-------|      | Left | Down |  Up  |Right |      |
  * |------+------+------+------+------+------|   [   |    |    ]  |------+------+------+------+------+------|
- * |      |      |      |      |      |      |-------|    |-------|   +  |   -  |   =  |   [  |   ]  |   \  |
+ * | Shift|      |      |      |      |      |-------|    |-------|   +  |   -  |   =  |   [  |   ]  |   \  |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *                   |LOWER | LGUI | Alt  | /Space  /       \Enter \  |BackSP| RGUI |RAISE |
  *                   |      |      |      |/       /         \      \ |      |      |      |
@@ -126,8 +126,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_RAISE] = LAYOUT( \
   KC_F1,  KC_F2,    KC_F3,   KC_F4,   KC_F5,   KC_F6,                       KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12, \
   KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                        KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______, \
-  _______, _______, _______,  _______, _______,  _______,                   XXXXXXX, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX, \
-  _______, _______, _______,  _______, _______,  _______, _______, _______,  KC_PLUS, KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_BSLS, \
+  KC_CAPS, _______, _______,  _______, _______,  _______,                   XXXXXXX, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX, \
+  KC_LSFT, _______, _______,  _______, _______,  _______, _______, _______,  KC_PLUS, KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_BSLS, \
                               _______, _______, _______,  _______, _______,  _______, _______, _______ \
 )
 };
@@ -138,11 +138,6 @@ size_t sizeof_keymaps() {
 
 // define variables for reactive RGB
 bool TOG_STATUS = false;
-int RGB_current_mode;
-#ifdef RGBLIGHT_ENABLE
-//Following line allows macro to read current RGB settings
-extern rgblight_config_t rgblight_config;
-#endif
 
 void persistent_default_layer_set(uint16_t default_layer) {
   eeconfig_update_default_layer(default_layer);
@@ -150,17 +145,6 @@ void persistent_default_layer_set(uint16_t default_layer) {
   layer_state_set(default_layer);
 }
 
-// Setting ADJUST layer RGB back to default
-void update_tri_layer_RGB(uint8_t layer1, uint8_t layer2, uint8_t layer3) {
-  if (IS_LAYER_ON(layer1) && IS_LAYER_ON(layer2)) {
-    #ifdef RGBLIGHT_ENABLE
-      //rgblight_mode(RGB_current_mode);
-    #endif
-    layer_on(layer3);
-  } else {
-    layer_off(layer3);
-  }
-}
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   char str[16];
  
